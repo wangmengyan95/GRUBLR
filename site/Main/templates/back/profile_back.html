@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+        <title>GRUBLR</title>
+		<!-- <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+		{% load staticfiles %}
+		<link href="{% static "css/style.css" %}" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+	</head>
+	<body>
+
+		<div class="navbar">
+			<div class="navbar-inner">
+
+				<ul class="nav">
+					<li><a></a></li>
+					<li><a></a></li>
+					<li><a></a></li>
+				</ul>
+
+				<a class="brand" id="GBrand" href="#">G</a>
+
+				<ul class="nav">
+					<li><a href="/home/">home</a></li>
+					<li class="active"><a>profile</a></li>
+					<li><a>friend</a></li>
+				</ul>
+
+				<ul class="nav pull-right">
+					<li><a></a></li>
+					<li><a></a></li>
+					<li><a></a></li>
+				</ul>
+
+				<ul class="nav pull-right">
+					<li><a><i class="icon-off icon-large LogOutIcon"></i></a></li>
+				</ul>
+
+				<ul class="nav pull-right">
+					<li class="dropdown hidden-phone">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-tags icon-large"></i>
+					  </a>
+					  <ul class="dropdown-menu pull-right">
+						<li><a href="#">Message1</a></li>
+						<li><a href="#">Message2</a></li>
+						<li><a href="#">Message3</a></li>
+					  </ul>
+					</li>				
+				</ul>
+
+				<ul class="nav pull-right">
+					<form class="navbar-search pull-right" method='get' action='/searchGrumblr/'>
+						<input type="text" name="keyWord" class="search-query">
+					</form>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="mainContent"> 
+					<div class="span7 offset1">
+						<div class="span12 ContentContainer">
+							<p class="TextTip">Profile</p>
+
+							<div class="ContentTopContainer">
+								<div class="UserAvatarContainer">
+									<div class="span4 UserAvatar">
+										<ul>
+											<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li>
+										</ul>
+									</div>
+									<div class="span8 UserName">
+										<p>{{user.username}}</p>
+										<a href="#" class="ViewProfile">css is suck</a>
+									</div>
+								</div>
+								<div class="InformationList">
+									<table>
+										<tr>
+											<td>1<br>GRUBLR</td>
+											<td class="MiddleTD">2<br>Followers</td>
+											<td>3<br>Followings</td>
+											<td><button class="btn pull-right">Edit Profile</button></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+
+							<div class="ContentMainContainer">
+								<div class="ProfileEditBasicContainer WithBorder">
+									<div class="ProfileTitleBar">
+										<table>
+											<tr>
+												<td>Baisc</td>
+												<td><button class="btn pull-right" id="ProfileEditBasicButton">Edit</button></td>
+											</tr>
+										</table>
+									</div>
+
+									<div class="ProfileContainer">
+										<form class="form-horizontal" id="editProfileForm">
+
+										  <div class="control-group">
+										    <label class="control-label">Email:</label>
+										    <div class="controls">
+										      <input type="text" name="email" placeholder="Email">
+										    </div>
+										  </div>
+										  <div class="control-group">
+										    <label class="control-label">First Name:</label>
+										    <div class="controls">
+										      <input type="text" placeholder="First Name" name="firstName">
+										    </div>
+										  </div>
+										  <div class="control-group">
+										    <label class="control-label">Last Name:</label>
+										    <div class="controls">
+										      <input type="text" placeholder="Last Name" name="lastName">
+										    </div>
+										  </div>
+										  <div class="control-group">
+										    <label class="control-label">Birthday:</label>
+										    <div class="controls">
+										      <input type="text" id="birthdayPicker" name="birthday"placeholder="Birthday">
+										    </div>
+										  </div>
+										</form>
+
+
+										<form class="form-horizontal" id="showProfileForm">
+										  <div class="control-group">
+										    <label class="control-label">Email:</label>
+										    <div class="controls">
+										    	<label class="control-label" style="text-align:left" id="profileEmail">{{user.email}}</label>
+										    </div>
+										  </div>	
+										  <div class="control-group">
+										    <label class="control-label">First Name:</label>
+										    <div class="controls">
+										    	<label class="control-label" style="text-align:left" id="profileFirstName">{{user.firstName}}</label>
+										    </div>
+										  </div>		
+										  <div class="control-group">
+										    <label class="control-label">Last Name:</label>
+										    <div class="controls">
+										      <label class="control-label" style="text-align:left" id="profileLastName">{{user.lastName}}</label>
+										    </div>
+										  </div>
+										  <div class="control-group">
+										    <label class="control-label">Birthday:</label>
+										    <div class="controls">
+										    	<label class="control-label" style="text-align:left" id="profileBirthday">{{user.birthday}}</label>
+										    </div>
+										  </div>	
+										</form>
+
+									</div>
+								</div>
+						
+
+								<div class="ProfileEditContactContainer"></div>
+								<div class="ProfileEditExperienceContainer"></div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="span3">
+						<div class="UserInformationNav">
+							<ul class="nav nav-tabs nav-stacked">
+								<li><a href="#" class="TopA">GRUBLR<i class="icon-chevron-right pull-right"></i></a></li>
+  								<li><a href="#">Followers<i class="icon-chevron-right pull-right"></i></a></li>
+  								<li><a href="#" class="BottomA">Following<i class="icon-chevron-right pull-right"></i></a></li>
+							</ul>
+						</div>
+
+
+						<div class="FriendListContainer">
+							<div class="FriendListTitle">
+								<p>Who to follow?</p>
+							</div>
+							<div class="FriendList">
+								<div class="UserAvatarContainer">
+									<div class="span4 UserAvatar">
+										<ul>
+											<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li>
+										</ul>
+									</div>
+									<div class="span8 UserName">
+										<p>Mengyan Wang</p>
+										<button class="btn btn-success">Follow</button>
+									</div>
+								</div>
+								<div class="UserAvatarContainer">
+									<div class="span4 UserAvatar">
+										<ul>
+											<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li>
+										</ul>
+									</div>
+									<div class="span8 UserName">
+										<p>Mengyan Wang</p>
+										<button class="btn btn-success">Follow</button>
+									</div>
+								</div>
+
+								<div class="FriendListFooter">
+									<p>More suggestions?</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- <input type="text" id="birthdayPicker1" /> -->
+		{% load staticfiles %}
+
+	    <script src="http://code.jquery.com/jquery.js"></script>
+    	<script src="{% static "js/bootstrap.min.js" %}"></script>
+    	<script src="{% static "js/custom.js"%}"></script>
+    	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+
+{% block navButtonList %}
+<li><a href="/home/">home</a></li>
+<li><a href="/profile/">profile</a></li>
+<li class="active"><a href="/relationship/Followers/">relationship</a></li>
+{% endblock %}
+
+{% block contentTitle %}<p class="ContentTitle">Relationship</p>{% endblock %}
+
+{% block contentTop %}
+<div class="ContentTopContainer">
+	<div class="UserAvatarContainer">
+		<div class="span4 UserAvatar">
+			<ul>
+<!-- 				{% load static %}
+				<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li> -->
+				<li class="AvatarImage"><img src="/getSelfAvatar"></li>
+			</ul>
+		</div>
+		<div class="span8 LargeUserName">
+			<p>{{user.username}}</p>
+		</div>
+	</div>
+	<div class="InformationList">
+		<table>
+			<tr>
+				<td>{{Followers}}<a href="/relationship/Followers"><br>Followers</a></td>
+				<td class="MiddleTD">{{Followings}}<a href="/relationship/Followings"><br>Followings</a></td>
+				<td>{{Blocks}}<a href="/relationship/Blocks"><br>Blocks</a></td>
+			</tr>
+		</table>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block contentMain %}
+<div class="ContentMainContainer">
+	<div class="GRUBLRContainer"> 
+		<div class="RefreshBarContainer">
+			<p class="RefreshBar">new GRUBLR</p>
+		</div>
+
+			{% for relationship in relationshipList %}
+			<div class="SingleGRUBLRContainer">
+				<div class="GrumblrMessageContainer">
+
+					<div class="span2 AvatarContainer">
+						<img src="{% url 'getAvatar' relationship%}" class="ListAvatarImage">
+					</div>			
+					<div class="span10 GRUBLRMessage">
+						<div class="MessageContainer">
+							<ul>
+								<li class="RelationshipListTitle"><a href="/personalPage/{{relationship}}/">{{relationship}}</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="ClearFloat">
+					</div>
+
+				</div>
+			</div>
+			{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block sidebarTop %}
+<div class="UserInformationNav">
+	<ul class="nav nav-tabs nav-stacked">
+		<li><a href="/home/all" class="TopA">Grumblrs<i class="icon-chevron-right pull-right"></i></a></li>
+		<li><a href="/relationship/Followers">Followers<i class="icon-chevron-right pull-right"></i></a></li>
+		<li><a href="/relationship/Followings" class="BottomA">Followings<i class="icon-chevron-right pull-right"></i></a></li>
+	</ul>
+</div>
+{% endblock %}
+
+
+{% block sidebarMain %}
+{% endblock %}

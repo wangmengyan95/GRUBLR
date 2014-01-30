@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+        <title>GRUBLR</title>
+		<!-- <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+		{% load staticfiles %}
+		<link href="{% static "css/style.css" %}" rel="stylesheet" media="screen">
+	</head>
+	<body>
+
+		<div class="navbar">
+			<div class="navbar-inner">
+
+				<ul class="nav">
+					<li><a></a></li>
+					<li><a></a></li>
+					<li><a></a></li>
+				</ul>
+
+				<a class="brand" id="GBrand" href="#">G</a>
+
+				<ul class="nav">
+					<li class="active"><a>home</a></li>
+					<li><a href="/profile/">profile</a></li>
+					<li><a>friend</a></li>
+				</ul>
+
+				<ul class="nav pull-right">
+					<li><a></a></li>
+					<li><a></a></li>
+					<li><a></a></li>
+				</ul>
+
+				<ul class="nav pull-right">
+					<li><a><i class="icon-off icon-large LogOutIcon"></i></a></li>
+				</ul>
+
+				<ul class="nav pull-right">
+					<li class="dropdown hidden-phone">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					  	<i class="icon-tags icon-large"></i>
+					  </a>
+					  <ul class="dropdown-menu pull-right">
+						<li><a href="#">Message1</a></li>
+						<li><a href="#">Message2</a></li>
+						<li><a href="#">Message3</a></li>
+					  </ul>
+					</li>			
+				</ul>
+
+				<ul class="nav pull-right">
+					<form class="navbar-search pull-right" method='get' action='/searchGrumblr/'>
+						<input name="keyWord" type="text" class="search-query">
+					</form>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="mainContent"> 
+					<div class="span7 offset1">
+						<div class="span12 ContentContainer">
+							<div class="GrumblrTextArea">
+								<p class="TextTip">GRUMBLR</p>
+								<form action="/home/postGrumblr/" method="post">
+									{% csrf_token %}
+									<textarea class="span12 TextArea" name="content" rows="4"></textarea>
+									<div class="TextButtonList">
+										<button class="btn"><i class="icon-camera"></i></button>
+										<button type="submit" class="btn" id="postGrumblrButton">Grumblr</button>
+									</div>
+								</form>
+							</div>
+
+							<ul class="nav nav-pills GrumblrTagList">
+								<li class="active">
+									<!-- <a href="#">首页</a> -->
+								</li>
+								<li class="active">
+									<a href="/home/all" >All</a>
+								</li>
+								<li class="active">
+									<a href="/home/others">Others</a>
+								</li>
+								<li class="active">
+									<a href="/home/my">My</a>
+								</li>								
+							</ul>
+
+							<div class="GRUBLRContainer"> 
+								<div class="RefreshBarContainer">
+									<p class="RefreshBar">new GRUBLR</p>
+								</div>
+	
+
+								{% for grumblr in grumblrList %}
+								<div class="GrumblrMessageContainer">
+									<div class="span2 AvatarContainer">
+										<ul>
+											<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li>
+										</ul>
+									</div>
+									<div class="span10 GRUBLRMessage">
+										<div class="MessageContainer">
+											<ul>
+												<li class="MessageTitle">{{grumblr.owner.username}}</li>
+												<li class="MessageText">{{grumblr.content}}</li>
+												<!-- <li class="MessageImage"><img src="{% static "img/test.jpg" %}"></li> -->
+											</ul>
+										</div>
+										<div class="MessageToolbar">
+											<a href="#" class="MessageToolbarItemLeft">Expand</a>
+											<a href="#" class="MessageToolbarItemRight">Reply</a>
+											<a href="#" class="MessageToolbarItemRight">Thumb</a>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+
+					</div>
+					<div class="span3">
+						<div class="ContentTopContainer">
+							<div class="UserAvatarContainer">
+								<div class="span4 UserAvatar">
+									<ul>
+										<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li>
+									</ul>
+								</div>
+								<div class="span8 UserName">
+									<p>{{user.username}}</p>
+									<a href="/profile" class="ViewProfile">View My Profile</a>
+								</div>
+							</div>
+							<div class="InformationList">
+								<table>
+									<tr>
+										<td>1<br>GRUBLR</td>
+										<td class="MiddleTD">2<br>Followers</td>
+										<td>3<br>Followings</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+
+						<div class="FriendListContainer">
+							<div class="FriendListTitle">
+								<p>Who to follow?</p>
+							</div>
+							<div class="FriendList">
+								<div class="UserAvatarContainer">
+									<div class="span4 UserAvatar">
+										<ul>
+											<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li>
+										</ul>
+									</div>
+									<div class="span8 UserName">
+										<p>wangmengyan</p>
+										<button class="btn btn-success">Follow</button>
+									</div>
+								</div>
+								<div class="UserAvatarContainer">
+									<div class="span4 UserAvatar">
+										<ul>
+											<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li>
+										</ul>
+									</div>
+									<div class="span8 UserName">
+										<p>Mengyan Wang</p>
+										<button class="btn btn-success">Follow</button>
+									</div>
+								</div>
+
+								<div class="FriendListFooter">
+									<p>More suggestions?</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+	    <script src="http://code.jquery.com/jquery.js"></script>
+	    {% load staticfiles %}
+    	<script src="{% static "js/bootstrap.min.js" %}"></script>
+    	<script src="{% static "js/custom.js"%}"></script>
+    	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	</body>
+</html>

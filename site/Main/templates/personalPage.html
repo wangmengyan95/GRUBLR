@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+
+{% block navButtonList %}
+<li><a href="/home/">home</a></li>
+<li><a href="/profile/">profile</a></li>
+<li><a href="/relationship/Followers/">relationship</a></li>
+{% endblock %}
+
+{% block contentTitle %}<p class="ContentTitle">GRUMBLR</p>{% endblock %}
+
+{% block contentTop %}
+<div class="ContentTopContainer">
+	<div class="UserAvatarContainer">
+		<div class="span4 UserAvatar">
+			<ul>
+<!-- 				{% load static %}
+				<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li> -->
+				<li class="AvatarImage"><img src="/getAvatar/{{user.username}}"></li>
+			</ul>
+		</div>
+		<div class="span8 LargeUserName">
+			<p>{{user.username}}</p>
+		</div>
+	</div>
+	<div class="InformationList">
+		<table>
+			<tr>
+				<td>{{Grumblrs}}<br>Grumblrs</td>
+				<td class="MiddleTD">{{Followers}}<br>Followers</td>
+				<td class="MiddleTD">{{Followings}}<br>Followings</td>
+				<td>{{Blocks}}<br>Blocks</td>
+
+			
+
+
+
+				{% if not isSelf and isBlock%}
+					<td>
+						<form action='/deBlockUser/' Method='post'>
+						{% csrf_token %}
+						<button class="btn pull-right btn-success" type="submit" name="friendName" value="{{user.username}}"><i class="icon-star"></i>DeBlock</button>
+						</form>
+					</td>
+				{% elif not isSelf and not isBlock %}
+					<td>
+						<form action='/blockUser/' Method='post'>
+						{% csrf_token %}
+						<button class="btn pull-right btn-inverse" type="submit" name="friendName" value="{{user.username}}"><i class="icon-star"></i>Block</button>
+						</form>
+					</td>
+				{% endif %}
+						
+				{% if not isSelf and isFriend%}
+					<td>
+						<form action='/deFollowFriend/' Method='post'>
+						{% csrf_token %}
+						<button class="btn pull-right btn-inverse" type="submit" name="friendName" value="{{user.username}}"><i class="icon-star"></i>Defollow</button>
+						</form>
+					</td>
+				{% elif not isSelf and not isFriend %}
+					<td>
+						<form action='/followFriend/' Method='post'>
+						{% csrf_token %}
+						<button class="btn pull-right btn-success" type="submit" name="friendName" value="{{user.username}}"><i class="icon-star"></i>Follow</button>
+						</form>
+					</td>
+				{% endif %}
+			</tr>
+		</table>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block contentMain %}
+<div class="ContentMainContainer">
+	<div class="GRUBLRContainer"> 
+		<div class="RefreshBarContainer">
+			<p class="RefreshBar">new GRUBLR</p>
+		</div>
+
+
+		{% for grumblr in grumblrList %}
+		<div class="SingleGRUBLRContainer">
+			<div class="GrumblrMessageContainer">
+				<div class="span2 AvatarContainer">
+						{% load static %}
+					<img src="{% url 'getAvatar' grumblr.owner.username %}" class="AvatarImage">
+				</div>
+				<div class="span10 GRUBLRMessage">
+					<div class="MessageContainer">
+						<ul>
+							<li class="MessageTitle"><a href="/personalPage/{{grumblr.owner.username}}/">{{grumblr.owner.username}}</a></li>
+							<li class="MessageText">{{grumblr.content}}</li>
+							<li class="GrumblrId" style="display:none">{{grumblr.id}}</li>
+
+							{% if grumblr.image %}
+							<li><img src="{% url 'getGrumblrImage' grumblr.id %}" class="GrumblrImage" data-formerHeight="10" data-formerWidth="10" data-size="small"></li>
+							<div class="ClearFloat"></div>
+							{% endif %}
+							
+						</ul>
+					</div>
+					<div class="MessageToolbar">
+						<a class="MessageToolbarItemLeft">Expand</a>
+						<a href="#" class="MessageToolbarItemRight">Reply</a>
+						<a href="#" class="MessageToolbarItemRight">Thumb</a>
+					</div>
+				</div>
+				<div class="ClearFloat">
+				</div>
+			</div>
+			<div class="GrumblrReplyContainer">
+				<div class="ReplyInputContainer">
+					<div class="span12 ReplyContainer">
+						<input type="text" class="form-control span12 ReplyInput" placeholder="Comment" >
+						<i class="icon-paper-clip icon-large pull-left" style="margin-left:40px"></i>
+						<button class="btn btn-small pull-right PostGrumblrCommentButton" type="button">Reply</button>
+					</div>	
+					<div class="ClearFloat">
+					</div>
+				</div>
+				<div class="ReplyMessageSampleContainer" style="display:none">
+					<div class="span2 AvatarContainer">
+							{% load static %}
+							<img class="SmallAvatarImage CommentUserAvatar" src="">
+					</div>	
+					<div class="span9 ReplyContainer">
+						<p class="ReplyUser">wangmengyan95</p>
+						<p class="ReplyContent">123</p>
+					</div>	
+					<div class="ClearFloat">
+					</div>			
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block sidebarTop %}
+{% endblock %}
+
+
+{% block sidebarMain %}
+{% endblock %}

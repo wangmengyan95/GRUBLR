@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block navButtonList %}
+<li><a href="/home/">home</a></li>
+<li class="active"><a href="/profile/">profile</a></li>
+<li><a href="/relationship/Followers/">relationship</a></li>
+{% endblock %}
+
+{% block contentTitle %}<p class="ContentTitle">Profile</p>{% endblock %}
+
+
+{% block contentTop %}
+<div class="ContentTopContainer">
+	<div class="UserAvatarContainer">
+		<div class="span4 UserAvatar">
+			<ul>
+<!-- 				{% load static %}
+				<li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li> -->
+				<li class="AvatarImage"><img src="/getSelfAvatar/"></li>
+			</ul>
+		</div>
+		<div class="span8 LargeUserName">
+			<p>{{user.username}}</p>
+		</div>
+	</div>
+	<div class="InformationList">
+		<table>
+			<tr>
+				<td>{{Grumblrs}}<br><a href="/home/all">Grumblrs</a></td>
+				<td class="MiddleTD">{{Followers}}<a href="/relationship/Followers"><br>Followers</a></td>
+				<td class="MiddleTD">{{Followings}}<a href="/relationship/Followings"><br>Followings</a></td>
+				<td>{{Blocks}}<a href="/relationship/Blocks"><br>Blocks</a></td>
+				<!-- <td><button class="btn pull-right">Edit Profile</button></td> -->
+			</tr>
+		</table>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block contentMain %}
+<div class="ContentMainContainer">
+	<div class="ProfileEditBasicContainer WithBorder">
+		<div class="ProfileTitleBar">
+			<table>
+				<tr>
+					<td>Baisc</td>
+					<td>
+						<button class="btn pull-right" id="ProfileEditBasicButton">Edit</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="ProfileContainer">
+			<form class="form-horizontal" enctype="multipart/form-data" id="editProfileForm">
+
+			  <div class="control-group">
+			    <label class="control-label">Email:</label>
+			    <div class="controls">
+			      <!-- <input type="text" name="email" placeholder="Email"> -->
+			      {{ form.email }}
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label">First Name:</label>
+			    <div class="controls">
+			      <!-- <input type="text" placeholder="First Name" name="firstName"> -->
+			      {{ form.firstName }}
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label">Last Name:</label>
+			    <div class="controls">
+			      <!-- <input type="text" placeholder="Last Name" name="lastName"> -->
+			      {{form.lastName}}
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label">Birthday:</label>
+			    <div class="controls">
+			      <input type="text" id="birthdayPicker" name="birthday" placeholder="Birthday">
+<!-- 			      {{form.birthday}} -->
+			    </div>
+			  </div>
+
+			  <div class="control-group">
+			    <label class="control-label">Photo:</label>
+			    <div class="controls">
+			      <!-- <input type="text" id="birthdayPicker" name="birthday"placeholder="Birthday"> -->
+			      <input type="file" name="avatar" id="avatar"/>  
+			    </div>
+			  </div>
+
+<!-- 			  <div class="control-group">
+			    <div class="controls">
+			      <div class="progress" style="width:70%">
+			      	<div class="bar"></div>
+			      	<div class="percent">0%</div>
+			      </div>
+
+			    </div>
+			  </div> -->
+
+			</form>
+
+
+			<form class="form-horizontal" id="showProfileForm">
+			  <div class="control-group" style="margin-bottom:0px">
+			    <label class="control-label">UserName:</label>
+			    <div class="controls">
+			    	<label class="control-label" style="text-align:left" id="">
+			    		{{user.username}}
+			    	</label>
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label"></label>
+			    <div class="controls">
+			    	<label class="control-label" style="text-align:left" id="">
+			    		<a href="/changePassword/">Change Password</a>
+			    	</label>
+			    </div>
+			  </div>	
+			  <div class="control-group">
+			    <label class="control-label">Email:</label>
+			    <div class="controls">
+			    	<label class="control-label" style="text-align:left" id="profileEmail">{{user.email}}</label>
+			    </div>
+			  </div>	
+			  <div class="control-group">
+			    <label class="control-label">First Name:</label>
+			    <div class="controls">
+			    	<label class="control-label" style="text-align:left" id="profileFirstName">{{user.firstName}}</label>
+			    </div>
+			  </div>		
+			  <div class="control-group">
+			    <label class="control-label">Last Name:</label>
+			    <div class="controls">
+			      <label class="control-label" style="text-align:left" id="profileLastName">{{user.lastName}}</label>
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label">Birthday:</label>
+			    <div class="controls">
+			    	<label class="control-label" style="text-align:left" id="profileBirthday">{{user.birthday}}</label>
+			    </div>
+			  </div>	
+			</form>
+
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block sidebarTop %}
+<div class="UserInformationNav">
+	<ul class="nav nav-tabs nav-stacked">
+		<li><a href="/home/all" class="TopA">Grumblrs<i class="icon-chevron-right pull-right"></i></a></li>
+			<li><a href="/relationship/Followers">Followers<i class="icon-chevron-right pull-right"></i></a></li>
+			<li><a href="/relationship/Followings" class="BottomA">Followings<i class="icon-chevron-right pull-right"></i></a></li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block sidebarMain %}
+<div class="FriendListContainer">
+	<div class="FriendListTitle">
+		<p>Who to follow?</p>
+	</div>
+	<div class="FriendList">
+		{% for recommendFriend in recommendFriendList %}
+		<div class="UserAvatarContainer">
+			<div class="span4 UserAvatar">
+				<ul>
+					{% load static %}
+					<!-- <li class="AvatarImage"><img src="{% static "img/test.jpg" %}"></li> -->
+					<li class="AvatarImage"><img src="{% url 'getAvatar' recommendFriend.username %}"></li>
+				</ul>
+			</div>
+			<div class="span8 UserName">
+				<p>{{recommendFriend.username}}</p>
+				<a href="/personalPage/{{recommendFriend.username}}"><button class="btn btn-success">Follow</button></a>
+			</div>
+		</div>
+		{% endfor %}
+
+		<div class="FriendListFooter">
+			<p>More suggestions?</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

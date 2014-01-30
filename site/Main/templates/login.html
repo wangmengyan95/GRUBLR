@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+        <title>GRUBLR</title>
+		{% load staticfiles %}
+		<link href="{% static "css/style.css" %}" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<div class="row-fluid">
+			<div class="span4 offset4">
+				<div class="container">
+					<div class="IndexTitle">
+						<p>GRUBLR</p>
+					</div>
+
+
+<!-- 		   		  {% ifequal logInError '1' %}
+					<div class="WarnningForm">
+						<p>User name or password is not correct</p>
+					</div>
+				  {% endifequal %} -->
+
+
+					<div class="IndexForm" id="logInForm" name="logInForm">
+					    <form class="form-horizontal" action="." method="post">
+				    	{% csrf_token %}
+
+						  <div class="control-group">
+						    <label class="control-label">UserName</label>
+						    <div class="controls">
+						      <input type="text" id="inputEmail" placeholder="userName" name="userName">
+						    </div>
+						  </div>
+				  		  <div class="control-group" style="margin-bottom:0px">
+						    <label class="control-label">Password</label>
+						    <div class="controls">
+						      <input type="password" id="inputPassword" placeholder="Password" name="passWord">
+						    </div>
+						  </div>
+					      <div class="control-group">
+						    <div class="controls">
+<!-- 						      <label class="checkbox">
+						        <input type="checkbox"> Remember me
+						    	</br> -->
+						      <!-- </label> -->
+						      <label class="checkbox" style="padding-left:0px">
+						      <a href="/findPassword/" style="margin-bottom:10px">Forget your password??</a>
+						      </label>
+						      <button type="submit" class="btn" id="signInButton">Sign in</button>
+						      <button type="button" class="btn" id="registerStartButton">Register</button>
+						    </div>
+						  </div>
+						  <!-- <div id="welcomeLogo">Hello Mengyan Wang<div> -->
+						</form>
+					</div>
+
+
+					<div class="IndexForm" id="registerForm" name="registerForm">
+					    <form class="form-horizontal" id="registerInfoForm" name="registerInfoForm">
+				    	{% csrf_token %}
+						  <div class="control-group">
+						    <label class="control-label">UserName</label>
+						    <div class="controls">
+						      <input type="text" id="userName" class="NeedCheckInputField required" placeholder="UserName" name="userName">
+						       <i class="icon-ok-sign icon-large InputCheckIcon"></i>
+					           <i class="icon-remove-sign icon-large InputCheckIcon"></i>
+						    </div>
+						  </div>
+  						  <div class="control-group">
+						    <label class="control-label">Email</label>
+						    <div class="controls">
+						      <input type="text" id="email" class="NeedCheckInputField required email" placeholder="Email" name="email">
+  						       <i class="icon-ok-sign icon-large InputCheckIcon"></i>
+					           <i class="icon-remove-sign icon-large InputCheckIcon"></i>
+						    </div>
+						  </div>
+				  		  <div class="control-group">
+						    <label class="control-label">Password</label>
+						    <div class="controls">
+						      <input type="password" id="password" placeholder="Password" name="password" class="NeedCheckInputField">
+  						       <i class="icon-ok-sign icon-large InputCheckIcon"></i>
+					           <i class="icon-remove-sign icon-large InputCheckIcon"></i>
+						    </div>
+						  </div>
+				  		  <div class="control-group">
+						    <label class="control-label">Confirm Password</label>
+						    <div class="controls">
+						      <input type="password" id="password1" placeholder="Confirm Password" name="password1" class="NeedCheckInputField">
+  						       <i class="icon-ok-sign icon-large InputCheckIcon"></i>
+					           <i class="icon-remove-sign icon-large InputCheckIcon"></i>
+						    </div>
+						  </div>
+
+					      <div class="control-group">
+						    <div class="controls">
+						      <button type="button" class="btn" id="registerFinishButton">Register GRUBLR</button>
+						    </div>
+						  </div>
+						</form>
+					</div>
+
+
+					<div class="IndexForm" id="welcomeForm">
+						<div id="welcomeLogo"></div>
+					</div>
+
+
+					<div class="IndexFooterIcon">
+						<p class="IndexFooterIconText">G</p>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+
+		{% load staticfiles %}
+
+	    <script src="http://code.jquery.com/jquery.js"></script>
+    	<script src="{% static "js/bootstrap.min.js" %}"></script>
+    	<script src="{% static "js/custom.js"%}"></script>
+    	<script src="{% static "js/ghostType.js"%}"></script>
+    	<script src="{% static "js/callback.js"%}"></script>
+    	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	</body>
+</html>

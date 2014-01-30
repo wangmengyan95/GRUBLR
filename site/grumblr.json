@@ -1,0 +1,639 @@
+[
+{
+    "pk": 1, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "permission", 
+        "name": "permission", 
+        "app_label": "auth"
+    }
+},
+{
+    "pk": 2, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "group", 
+        "name": "group", 
+        "app_label": "auth"
+    }
+},
+{
+    "pk": 3, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "contenttype", 
+        "name": "content type", 
+        "app_label": "contenttypes"
+    }
+},
+{
+    "pk": 4, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "session", 
+        "name": "session", 
+        "app_label": "sessions"
+    }
+},
+{
+    "pk": 5, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "site", 
+        "name": "site", 
+        "app_label": "sites"
+    }
+},
+{
+    "pk": 6, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "logentry", 
+        "name": "log entry", 
+        "app_label": "admin"
+    }
+},
+{
+    "pk": 7, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "myuser", 
+        "name": "my user", 
+        "app_label": "UserProfile"
+    }
+},
+{
+    "pk": 8, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "myuserfriend", 
+        "name": "my user friend", 
+        "app_label": "UserProfile"
+    }
+},
+{
+    "pk": 9, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "myuserblock", 
+        "name": "my user block", 
+        "app_label": "UserProfile"
+    }
+},
+{
+    "pk": 10, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "grumblr", 
+        "name": "grumblr", 
+        "app_label": "Grumblr"
+    }
+},
+{
+    "pk": 11, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "grumblrcomment", 
+        "name": "grumblr comment", 
+        "app_label": "Grumblr"
+    }
+},
+{
+    "pk": 12, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "grumblrthumbup", 
+        "name": "grumblr thumb up", 
+        "app_label": "Grumblr"
+    }
+},
+{
+    "pk": "vztmded3bz17lkpyq6n3s0rhf7ivaths", 
+    "model": "sessions.session", 
+    "fields": {
+        "expire_date": "2013-11-10T13:15:39", 
+        "session_data": "OTNmMGU5ZThmNTE5MmYxNWRhNjE3NTAzYzdhMDk5ZDYwNzY4MWY2MzqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHEDVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg=="
+    }
+},
+{
+    "pk": 1, 
+    "model": "sites.site", 
+    "fields": {
+        "domain": "example.com", 
+        "name": "example.com"
+    }
+},
+{
+    "pk": 1, 
+    "model": "UserProfile.myuser", 
+    "fields": {
+        "username": "wangmengyan95", 
+        "firstName": "Mengyan", 
+        "lastName": "Wang", 
+        "birthday": "2013-10-05", 
+        "last_login": "2013-10-27T13:15:39", 
+        "avatar": "avatar/wangmengyan95_9.jpg", 
+        "isAdmain": false, 
+        "password": "pbkdf2_sha256$10000$XH5B7hVfoSMH$zA3NdxJ6yRt8z4DSIZEmBvp8SKDFspSoKy6r4qbc/+0=", 
+        "email": "wangmengyan95@gmail.com"
+    }
+},
+{
+    "pk": 2, 
+    "model": "UserProfile.myuser", 
+    "fields": {
+        "username": "Charlie", 
+        "firstName": "", 
+        "lastName": "", 
+        "birthday": null, 
+        "last_login": "2013-10-27T12:49:08", 
+        "avatar": "avatar/default.jpg", 
+        "isAdmain": false, 
+        "password": "pbkdf2_sha256$10000$p7Tv8dgYVsCG$s/SHKnK9jXLGNBWwz05vxEawnu58s3ihhTMLH8iZ+lA=", 
+        "email": "1@gmail.com"
+    }
+},
+{
+    "pk": 3, 
+    "model": "UserProfile.myuser", 
+    "fields": {
+        "username": "Sairam", 
+        "firstName": "123", 
+        "lastName": "123", 
+        "birthday": "2013-10-06", 
+        "last_login": "2013-10-27T12:59:50", 
+        "avatar": "avatar/Sairam.png", 
+        "isAdmain": false, 
+        "password": "pbkdf2_sha256$10000$onx2VRqdxfnT$MCPwNtrPyKTPJbrrzorw4MbkXX9Q71IncPAeQZXQiyw=", 
+        "email": "2@gmail.com"
+    }
+},
+{
+    "pk": 3, 
+    "model": "UserProfile.myuserfriend", 
+    "fields": {
+        "user": 2, 
+        "friend": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "UserProfile.myuserfriend", 
+    "fields": {
+        "user": 3, 
+        "friend": 1
+    }
+},
+{
+    "pk": 5, 
+    "model": "UserProfile.myuserfriend", 
+    "fields": {
+        "user": 3, 
+        "friend": 2
+    }
+},
+{
+    "pk": 5, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "123123", 
+        "owner": 1, 
+        "image": "GrumblrImage/5.jpg", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-26T19:11:01"
+    }
+},
+{
+    "pk": 6, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "123", 
+        "owner": 1, 
+        "image": "", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-26T19:52:12"
+    }
+},
+{
+    "pk": 7, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "123", 
+        "owner": 1, 
+        "image": "", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-26T19:53:38"
+    }
+},
+{
+    "pk": 8, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "qqq", 
+        "owner": 1, 
+        "image": "", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-26T19:53:46"
+    }
+},
+{
+    "pk": 9, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "aaaa", 
+        "owner": 1, 
+        "image": "", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-26T19:57:49"
+    }
+},
+{
+    "pk": 10, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "Guoan", 
+        "owner": 1, 
+        "image": "GrumblrImage/10.png", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-26T22:13:45"
+    }
+},
+{
+    "pk": 11, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "123", 
+        "owner": 1, 
+        "image": "GrumblrImage/11.jpg", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-26T22:13:58"
+    }
+},
+{
+    "pk": 12, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "haha", 
+        "owner": 1, 
+        "image": "GrumblrImage/12.jpg", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-27T12:11:22"
+    }
+},
+{
+    "pk": 13, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "Hello", 
+        "owner": 2, 
+        "image": "GrumblrImage/13.jpg", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-27T12:49:37"
+    }
+},
+{
+    "pk": 14, 
+    "model": "Grumblr.grumblr", 
+    "fields": {
+        "content": "Hello", 
+        "owner": 3, 
+        "image": "GrumblrImage/14.jpg", 
+        "thumbUp": 0, 
+        "publishDateTime": "2013-10-27T13:00:18"
+    }
+},
+{
+    "pk": 1, 
+    "model": "Grumblr.grumblrcomment", 
+    "fields": {
+        "owner": 1, 
+        "comment": "Great", 
+        "grumblr": 12, 
+        "publishDateTime": "2013-10-27T13:16:12"
+    }
+},
+{
+    "pk": 1, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_permission", 
+        "name": "Can add permission", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_permission", 
+        "name": "Can change permission", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_permission", 
+        "name": "Can delete permission", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_group", 
+        "name": "Can add group", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 5, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_group", 
+        "name": "Can change group", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 6, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_group", 
+        "name": "Can delete group", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 7, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_contenttype", 
+        "name": "Can add content type", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 8, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_contenttype", 
+        "name": "Can change content type", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 9, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_contenttype", 
+        "name": "Can delete content type", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 10, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_session", 
+        "name": "Can add session", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 11, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_session", 
+        "name": "Can change session", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 12, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_session", 
+        "name": "Can delete session", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 13, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_site", 
+        "name": "Can add site", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 14, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_site", 
+        "name": "Can change site", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 15, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_site", 
+        "name": "Can delete site", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 16, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_logentry", 
+        "name": "Can add log entry", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 17, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_logentry", 
+        "name": "Can change log entry", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 18, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_logentry", 
+        "name": "Can delete log entry", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 19, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_myuser", 
+        "name": "Can add my user", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 20, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_myuser", 
+        "name": "Can change my user", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 21, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_myuser", 
+        "name": "Can delete my user", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 22, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_myuserfriend", 
+        "name": "Can add my user friend", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 23, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_myuserfriend", 
+        "name": "Can change my user friend", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 24, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_myuserfriend", 
+        "name": "Can delete my user friend", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 25, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_myuserblock", 
+        "name": "Can add my user block", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 26, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_myuserblock", 
+        "name": "Can change my user block", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 27, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_myuserblock", 
+        "name": "Can delete my user block", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 28, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_grumblr", 
+        "name": "Can add grumblr", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 29, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_grumblr", 
+        "name": "Can change grumblr", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 30, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_grumblr", 
+        "name": "Can delete grumblr", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 31, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_grumblrcomment", 
+        "name": "Can add grumblr comment", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 32, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_grumblrcomment", 
+        "name": "Can change grumblr comment", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 33, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_grumblrcomment", 
+        "name": "Can delete grumblr comment", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 34, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_grumblrthumbup", 
+        "name": "Can add grumblr thumb up", 
+        "content_type": 12
+    }
+},
+{
+    "pk": 35, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_grumblrthumbup", 
+        "name": "Can change grumblr thumb up", 
+        "content_type": 12
+    }
+},
+{
+    "pk": 36, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_grumblrthumbup", 
+        "name": "Can delete grumblr thumb up", 
+        "content_type": 12
+    }
+}
+]
